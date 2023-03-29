@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" (ngSubmit)="doSearch()">
+    <label for="">
+        <b>Search</b>
+        <input type="text" formControlName="search"/>
+    </label>
+    <button type="submit">Search</button>
+    <br>
+</form>
+
+<!-- Error
+<button type="button" [disabled]="!data.previous" (click)="changePage(data.previous?.searchParams)">Previous</button>
+<button type="next" [disabled]="!data.next" (click)="changePage(data.next?.searchParams)">Next</button> -->
+<div *ngFor="let item of data.results" (click)="doSelect(item)" tabindex="0" (keydown.enter)="doSelect(item)">
+    {{ item.name }}
+</div>
